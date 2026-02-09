@@ -18,7 +18,7 @@ A comprehensive guide to understanding how to pay transit fares across different
 
 ### Prerequisites
 
-- Node.js (v14 or higher recommended)
+- Node.js (v18 or higher)
 - npm
 
 ### Installation
