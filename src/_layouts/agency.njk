@@ -1,0 +1,43 @@
+---
+layout: base.njk
+---
+
+<article class="agency-page">
+  <h1>{{ title }}</h1>
+  
+  <section class="agency-info">
+    <h2>Payment Methods</h2>
+    <div class="info-grid">
+      <div class="info-item">
+        <h3>Open Loop Support</h3>
+        <p class="status">{{ "✓ Yes" if support_openloop else "✗ No" }}</p>
+      </div>
+      
+      <div class="info-item">
+        <h3>QR Code Support</h3>
+        <p class="status">{{ "✓ Yes" if support_qrcode else "✗ No" }}</p>
+      </div>
+      
+      <div class="info-item">
+        <h3>Cash Support</h3>
+        <p class="status">{{ "✓ Yes" if support_cash else "✗ No" }}</p>
+      </div>
+      
+      <div class="info-item">
+        <h3>Open Loop Passback</h3>
+        <p class="status">{{ "✓ Yes" if support_openloop_passback else "✗ No" }}</p>
+      </div>
+      
+      {% if transfer_limit_duration_min %}
+      <div class="info-item">
+        <h3>Transfer Time Limit</h3>
+        <p class="status">{{ transfer_limit_duration_min }} minutes</p>
+      </div>
+      {% endif %}
+    </div>
+  </section>
+  
+  <section class="agency-content">
+    {{ content | safe }}
+  </section>
+</article>

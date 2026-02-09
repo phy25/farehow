@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }} - FareHow</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="/">FareHow</a>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/agencies/mbta/">MBTA</a></li>
+        <li><a href="/agencies/mta-nyct/">MTA-NYCT</a></li>
+        <li><a href="/agencies/mta-rr/">MTA-RR</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <main>
+    {{ content | safe }}
+  </main>
+  
+  <footer>
+    <p>&copy; 2026 FareHow - Transit Fare Payment Information</p>
+  </footer>
+</body>
+</html>
