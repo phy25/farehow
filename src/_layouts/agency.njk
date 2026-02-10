@@ -11,22 +11,22 @@ layout: base.njk
       <div class="info-grid">
         <div class="info-item">
           <h3>Open Loop Support</h3>
-          <p class="status">{{ "✓ Yes" if support_openloop else "✗ No" }}</p>
+          <p class="status {{ 'status-yes' if support_openloop else 'status-no' }}">{{ "✓ Yes" if support_openloop else "✗ No" }}</p>
         </div>
         
         <div class="info-item">
           <h3>QR Code Support</h3>
-          <p class="status">{{ "✓ Yes" if support_qrcode else "✗ No" }}</p>
+          <p class="status {{ 'status-yes' if support_qrcode else 'status-no' }}">{{ "✓ Yes" if support_qrcode else "✗ No" }}</p>
         </div>
         
         <div class="info-item">
           <h3>Cash Support</h3>
-          <p class="status">{{ "✓ Yes" if support_cash else "✗ No" }}</p>
+          <p class="status {{ 'status-yes' if support_cash else 'status-no' }}">{{ "✓ Yes" if support_cash else "✗ No" }}</p>
         </div>
         
         <div class="info-item">
           <h3>Open Loop Passback</h3>
-          <p class="status">{{ "✓ Yes" if support_openloop_passback else "✗ No" }}</p>
+          <p class="status {{ 'status-yes' if support_openloop_passback else 'status-no' }}">{{ "✓ Yes" if support_openloop_passback else "✗ No" }}</p>
         </div>
       </div>
     </section>

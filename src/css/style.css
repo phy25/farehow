@@ -8,7 +8,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
   line-height: 1.6;
   color: #2c3e50;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0891b2 0%, #0e7490 50%, #155e75 100%);
   background-attachment: fixed;
   min-height: 100vh;
 }
@@ -16,70 +16,55 @@ body {
 header {
   background: rgba(255, 255, 255, 0.98);
   backdrop-filter: blur(10px);
-  color: #2c3e50;
-  padding: 1.25rem 2rem;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-  border-bottom: 3px solid #667eea;
+  padding: 2rem 2rem 1.5rem;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  border-bottom: 4px solid #0891b2;
 }
 
-nav {
+.header-content {
   max-width: 1200px;
   margin: 0 auto;
-  display: flex;
+  text-align: center;
+}
+
+.logo {
+  display: inline-flex;
   align-items: center;
-  gap: 2rem;
-}
-
-nav > a {
-  font-size: 1.75rem;
-  font-weight: 800;
-  color: #667eea;
+  gap: 0.75rem;
   text-decoration: none;
-  letter-spacing: -0.5px;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
-nav > a:hover {
-  color: #764ba2;
+.logo:hover {
   transform: scale(1.05);
 }
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 2rem;
-  margin-left: auto;
+.logo-icon {
+  font-size: 3rem;
+  line-height: 1;
 }
 
-nav li a {
-  color: #2c3e50;
-  text-decoration: none;
-  font-weight: 600;
-  padding: 0.5rem 1rem;
-  border-radius: 6px;
-  transition: all 0.3s ease;
-  position: relative;
+.logo-text {
+  font-size: 2.5rem;
+  font-weight: 900;
+  background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -1px;
 }
 
-nav li a::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  width: 0;
-  height: 2px;
-  background: linear-gradient(90deg, #667eea, #764ba2);
-  transition: all 0.3s ease;
-  transform: translateX(-50%);
+@supports not (background-clip: text) {
+  .logo-text {
+    color: #0891b2;
+  }
 }
 
-nav li a:hover {
-  color: #667eea;
-  background: rgba(102, 126, 234, 0.1);
-}
-
-nav li a:hover::after {
-  width: 80%;
+.tagline {
+  color: #64748b;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
 }
 
 main {
@@ -127,27 +112,27 @@ main {
 
 .agency-info h2 {
   margin-bottom: 2rem;
-  color: #667eea;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #0891b2;
+  background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   padding-bottom: 0.75rem;
   font-size: 1.5rem;
   font-weight: 700;
-  border-bottom: 3px solid #667eea;
+  border-bottom: 3px solid #0891b2;
   position: relative;
 }
 
 @supports not (background-clip: text) {
   .agency-info h2 {
-    color: #667eea;
+    color: #0891b2;
   }
 }
 
 .agency-info h2::selection {
   -webkit-text-fill-color: white;
-  background: #667eea;
+  background: #0891b2;
 }
 
 .agency-info h2::after {
@@ -157,7 +142,7 @@ main {
   left: 0;
   width: 60px;
   height: 3px;
-  background: linear-gradient(90deg, #764ba2, transparent);
+  background: linear-gradient(90deg, #0e7490, transparent);
 }
 
 .info-grid {
@@ -186,9 +171,9 @@ main {
 
 .info-item {
   padding: 1.5rem;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.05) 0%, rgba(14, 116, 144, 0.05) 100%);
   border-radius: 12px;
-  border-left: 4px solid #667eea;
+  border-left: 4px solid #0891b2;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
@@ -201,15 +186,15 @@ main {
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.1) 0%, rgba(14, 116, 144, 0.1) 100%);
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
 .info-item:hover {
   transform: translateY(-4px) translateX(4px);
-  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.25);
-  border-left-color: #764ba2;
+  box-shadow: 0 8px 24px rgba(8, 145, 178, 0.25);
+  border-left-color: #0e7490;
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -224,7 +209,7 @@ main {
 
 .info-item h3 {
   font-size: 0.85rem;
-  color: #667eea;
+  color: #0891b2;
   margin-bottom: 0.75rem;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -236,9 +221,16 @@ main {
 .info-item .status {
   font-size: 1.35rem;
   font-weight: 700;
-  color: #2c3e50;
   position: relative;
   z-index: 1;
+}
+
+.status-yes {
+  color: #10b981;
+}
+
+.status-no {
+  color: #ef4444;
 }
 
 .agency-content {
@@ -259,7 +251,7 @@ main {
 }
 
 .agency-content h3 {
-  color: #667eea;
+  color: #0891b2;
   margin-top: 1.5rem;
   margin-bottom: 0.75rem;
   font-weight: 600;
@@ -296,8 +288,8 @@ main {
 .home-intro h1 {
   font-size: 3.5rem;
   margin-bottom: 1.5rem;
-  color: #667eea;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #0891b2;
+  background: linear-gradient(135deg, #0891b2 0%, #0e7490 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -307,13 +299,13 @@ main {
 
 @supports not (background-clip: text) {
   .home-intro h1 {
-    color: #667eea;
+    color: #0891b2;
   }
 }
 
 .home-intro h1::selection {
   -webkit-text-fill-color: white;
-  background: #667eea;
+  background: #0891b2;
 }
 
 .home-intro p {
@@ -355,11 +347,11 @@ main {
 .agency-list a {
   display: block;
   padding: 1.75rem 2rem;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%);
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.05) 0%, rgba(14, 116, 144, 0.05) 100%);
   color: #2c3e50;
   text-decoration: none;
   border-radius: 12px;
-  border-left: 5px solid #667eea;
+  border-left: 5px solid #0891b2;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-weight: 600;
   font-size: 1.15rem;
@@ -376,14 +368,14 @@ main {
   opacity: 0;
   transition: all 0.3s ease;
   font-size: 1.5rem;
-  color: #764ba2;
+  color: #0e7490;
 }
 
 .agency-list a:hover {
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+  background: linear-gradient(135deg, rgba(8, 145, 178, 0.15) 0%, rgba(14, 116, 144, 0.15) 100%);
   transform: translateX(8px);
-  box-shadow: 0 8px 24px rgba(102, 126, 234, 0.25);
-  border-left-color: #764ba2;
+  box-shadow: 0 8px 24px rgba(8, 145, 178, 0.25);
+  border-left-color: #0e7490;
   padding-right: 4rem;
 }
 
@@ -409,7 +401,7 @@ footer {
   text-align: center;
   padding: 2.5rem;
   margin-top: 5rem;
-  border-top: 3px solid #667eea;
+  border-top: 3px solid #0891b2;
 }
 
 footer p {
@@ -505,21 +497,20 @@ footer p {
     padding: 0 1rem;
   }
   
-  nav ul {
-    gap: 0.75rem;
+  .logo-icon {
+    font-size: 2rem;
   }
   
-  nav li a {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.875rem;
+  .logo-text {
+    font-size: 1.75rem;
   }
   
-  nav > a {
-    font-size: 1.4rem;
+  .tagline {
+    font-size: 0.9rem;
   }
   
   header {
-    padding: 1rem 1.5rem;
+    padding: 1.5rem 1rem 1.25rem;
   }
   
   footer {
