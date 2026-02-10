@@ -431,12 +431,13 @@ footer p {
   }
   
   .agency-info {
-    padding: 1.25rem;
+    padding: 1rem;
   }
   
   .agency-info h2 {
-    font-size: 1.25rem;
-    margin-bottom: 1.25rem;
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
   }
   
   .agency-page h1 {
@@ -444,17 +445,31 @@ footer p {
     margin-bottom: 1.5rem;
   }
   
+  .info-grid {
+    gap: 0.75rem;
+  }
+  
   .info-item {
-    padding: 1rem;
+    padding: 0.75rem;
   }
   
   .info-item h3 {
-    font-size: 0.85rem;
-    margin-bottom: 0.5rem;
+    font-size: 0.75rem;
+    margin-bottom: 0.4rem;
+    letter-spacing: 0.5px;
   }
   
   .info-item .status {
-    font-size: 1.1rem;
+    font-size: 1rem;
+  }
+  
+  .transfer-info {
+    gap: 0.75rem;
+  }
+  
+  .agency-info-container {
+    gap: 1rem;
+    margin-bottom: 1.5rem;
   }
   
   .agency-content {
