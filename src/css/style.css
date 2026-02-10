@@ -127,7 +127,7 @@ main {
 
 .agency-info h2 {
   margin-bottom: 2rem;
-  color: #2c3e50;
+  color: #667eea;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -137,6 +137,17 @@ main {
   font-weight: 700;
   border-bottom: 3px solid #667eea;
   position: relative;
+}
+
+@supports not (background-clip: text) {
+  .agency-info h2 {
+    color: #667eea;
+  }
+}
+
+.agency-info h2::selection {
+  -webkit-text-fill-color: white;
+  background: #667eea;
 }
 
 .agency-info h2::after {
@@ -199,6 +210,12 @@ main {
   transform: translateY(-4px) translateX(4px);
   box-shadow: 0 8px 24px rgba(102, 126, 234, 0.25);
   border-left-color: #764ba2;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .info-item:hover {
+    transform: none;
+  }
 }
 
 .info-item:hover::before {
@@ -279,12 +296,24 @@ main {
 .home-intro h1 {
   font-size: 3.5rem;
   margin-bottom: 1.5rem;
+  color: #667eea;
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: 800;
   letter-spacing: -1px;
+}
+
+@supports not (background-clip: text) {
+  .home-intro h1 {
+    color: #667eea;
+  }
+}
+
+.home-intro h1::selection {
+  -webkit-text-fill-color: white;
+  background: #667eea;
 }
 
 .home-intro p {
@@ -356,6 +385,16 @@ main {
   box-shadow: 0 8px 24px rgba(102, 126, 234, 0.25);
   border-left-color: #764ba2;
   padding-right: 4rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .agency-list a:hover {
+    transform: none;
+  }
+  
+  .agency-list a:hover::before {
+    transform: translateY(-50%);
+  }
 }
 
 .agency-list a:hover::before {
