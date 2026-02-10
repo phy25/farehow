@@ -34,17 +34,14 @@ layout: base.njk
     <section class="agency-info transfer-policy">
       <h2>Transfer Policy</h2>
       <div class="transfer-info">
-        {% if transfer_limit_duration_min %}
         <div class="info-item">
           <h3>Transfer Time Limit</h3>
+          {% if transfer_limit_duration_min %}
           <p class="status">{{ transfer_limit_duration_min }} minutes</p>
-        </div>
-        {% else %}
-        <div class="info-item">
-          <h3>Transfer Time Limit</h3>
+          {% else %}
           <p class="status">No free transfers</p>
+          {% endif %}
         </div>
-        {% endif %}
       </div>
     </section>
   </div>

@@ -96,6 +96,12 @@ main {
   gap: 1.5rem;
 }
 
+@media (max-width: 1024px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 768px) {
   .info-grid {
     grid-template-columns: 1fr;
