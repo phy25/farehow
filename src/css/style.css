@@ -449,7 +449,7 @@ footer p {
   }
   
   .info-item h3 {
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     margin-bottom: 0.5rem;
   }
   
@@ -495,8 +495,8 @@ footer p {
   }
   
   nav li a {
-    padding: 0.35rem 0.65rem;
-    font-size: 0.85rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
   }
   
   nav > a {
