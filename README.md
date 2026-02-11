@@ -33,15 +33,11 @@ Build the static site for production:
 npm run build
 ```
 
-The built site will be in the `_site/` directory.
+The built site will be in the `build/` directory.
 
 ## Project Structure
 
 Built with [Eleventy (11ty)](https://www.11ty.dev/) static site generator using front matter-driven content for structured transit fare data.
-
-## Adding a New Transit Agency
-
-Create a new markdown file in `src/agencies/` with front matter fields for payment methods and transfer policies. The agency list on the homepage is automatically generated from files in this directory.
 
 ## License
 

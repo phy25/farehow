@@ -1,11 +1,13 @@
 ---
 layout: agency.njk
 title: "MTA: Metro-North Railroad & Long Island Rail Road"
-support_openloop: false
+permalink: /mta-rr/
+support_emv_contactless: false
 support_qrcode: true
 support_cash: true
-support_openloop_passback: false
+support_emv_contactless_passback_max: 1
 transfer_time_limit_min: 0
+requires_tap_off: false
 ---
 
 ## About MTA-RR Fare Payment
@@ -27,8 +29,7 @@ MTA Railroad uses a zone-based fare system. There are no free transfers within t
 
 ### Important Notes
 
-- QR code tickets purchased through MTA eTix app must be activated **at least 1 minute before boarding**. A surcharge may apply for on-board purchases.
-- Open loop contactless payment is not currently supported (as of this information)
-- Peak vs. off-peak pricing applies based on time of travel
+- QR code tickets purchased through MTA eTix app must be activated **at least 1 minute before boarding**. A surcharge may apply for tickets activated late.
+- Peak fares are charged during weekday rush hours on trains scheduled to arrive in NYC terminals between 6 a.m. and 10 a.m. or depart NYC terminals between 4 p.m. and 8 p.m. On Metro-North, peak fares also apply to weekday trains that leave Grand Central between 6 a.m. and 9 a.m. Peak fares do not apply to weekends and holidays
 - Monthly passes and multi-ride tickets offer discounted rates
 - CityTicket program offers reduced fares for travel within NYC on weekends

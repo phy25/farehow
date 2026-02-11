@@ -4,27 +4,34 @@ layout: base.njk
 {% from "info-item.njk" import infoItem %}
 
 <article class="agency-page">
-  <h1>{{ title }}</h1>
-  
-  {% if agency_url %}
-  <div class="agency-link">
-    <a href="{{ agency_url }}" target="_blank" rel="noopener noreferrer">Official Fare Information →</a>
-  </div>
-  {% endif %}
+  <h1>
+    {{ title }}
+    {% if agency_url %}
+    <a href="{{ agency_url }}" target="_blank" rel="noopener noreferrer" class="agency-url-inline">Official Fare Information →</a>
+    {% endif %}
+  </h1>
   
   <div class="agency-info-container">
     <section class="agency-info payment-methods">
       <h2>Payment Methods</h2>
       <div class="info-grid">
-        {{ infoItem("Open Loop Support", support_openloop, true) }}
+        {{ infoItem("My Contactless Card", support_emv_contactless, true) }}
         {{ infoItem("QR Code Support", support_qrcode, true) }}
         {{ infoItem("Cash Support", support_cash, true) }}
-        {{ infoItem("Open Loop Passback", support_openloop_passback, true) }}
-        {% if requires_tap_off is defined %}
-        {{ infoItem("Requires Tap Off", requires_tap_off, true) }}
+        {% if support_emv_contactless_passback_max > 1 %}
+        {{ infoItem("Contactless Card Sharing", "✓ " + support_emv_contactless_passback_max|string + " riders total") }}
+        {% else %}
+        {{ infoItem("Contactless Card Sharing", "✗ Separate card for each rider") }}
         {% endif %}
-        {% if prepaid_card_fee %}
-        {{ infoItem("Prepaid Card Fee", "$" + prepaid_card_fee|string) }}
+        {{ infoItem("Requires Tap Off", requires_tap_off, true) }}
+        {% if support_transit_card and transit_card_main_name %}
+        {{ infoItem(transit_card_main_name, support_transit_card, true) }}
+        {% endif %}
+        {% if transit_card_main_fee %}
+        {{ infoItem(transit_card_main_name + " Fee", "$" + transit_card_main_fee|string) }}
+        {% endif %}
+        {% if requires_transfer_tap is defined %}
+        {{ infoItem("Special Tap Reader for Transfer", requires_transfer_tap, true) }}
         {% endif %}
       </div>
     </section>
@@ -33,12 +40,19 @@ layout: base.njk
       <h2>Transfer Policy</h2>
       <div class="transfer-info">
         {% if transfer_time_limit_min %}
-        {{ infoItem("Transfer Time Limit", transfer_time_limit_min|string + " minutes") }}
+          {% if transfer_time_limit_min % 60 == 0 %}
+          {{ infoItem("Transfer Time Limit", (transfer_time_limit_min / 60)|round|int|string + " hours") }}
+          {% else %}
+          {{ infoItem("Transfer Time Limit", transfer_time_limit_min|string + " minutes") }}
+          {% endif %}
         {% else %}
         {{ infoItem("Transfer Time Limit", "No free transfers") }}
         {% endif %}
         {% if transfer_is_unlimited_within_time is defined %}
-        {{ infoItem("Unlimited Transfers", transfer_is_unlimited_within_time, true) }}
+        {{ infoItem("Unlimited Within Time", transfer_is_unlimited_within_time, true) }}
+        {% endif %}
+        {% if fare_capping_amount %}
+        {{ infoItem("Fare Capping", fare_capping_amount) }}
         {% endif %}
       </div>
     </section>

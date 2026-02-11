@@ -1,14 +1,18 @@
 ---
 layout: agency.njk
 title: "MTA: New York City Transit"
+permalink: /mta-nyct/
 agency_url: https://omny.info/fares
-support_openloop: true
+support_emv_contactless: true
 support_qrcode: false
 support_cash: true
-support_openloop_passback: true
+support_emv_contactless_passback_max: 4
+support_transit_card: true
+transit_card_main_name: OMNY card
+transit_card_main_fee: 5
 transfer_time_limit_min: 120
 requires_tap_off: false
-prepaid_card_fee: 5
+fare_capping_amount: "12 trips / 7 days"
 ---
 
 ## About MTA-NYCT Fare Payment
@@ -19,7 +23,7 @@ New York City Transit operates the subway and local bus systems serving New York
 
 MTA-NYCT accepts the following payment methods:
 - **Contactless payment**: Credit/debit cards (Visa, Mastercard, American Express, Discover) and mobile payment (Apple Pay, Google Pay, Samsung Pay)
-- **OMNY card**: Prepaid card ($5 fee, refundable)
+- **OMNY card**: Prepaid card ($5 fee, non-refundable)
 - **Cash**: Coins only, accepted on buses
 
 ### Transfer Policy
@@ -33,6 +37,9 @@ Free transfers are available between subway and local buses, or between two buse
 ### Passback Policy
 
 OMNY allows passback for contactless payments - multiple people (up to 4) can use the same contactless card or device.
+
+- Fare capping only applies to one rider on the same card.
+- If the card was never used to pay fare via OMNY before, passback may be rejected on the first use. This is because your bank must approve the transaction before any other fares are paid. Instead, use a separate payment method for everyone on your first trip. Approval generally takes only a few minutes.
 
 ### Fare Capping
 
