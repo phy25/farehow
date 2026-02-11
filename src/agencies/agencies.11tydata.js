@@ -11,6 +11,11 @@ module.exports = {
     if (!data.page.inputPath.includes('/agencies/')) {
       return;
     }
+    
+    // Skip README files
+    if (data.page.inputPath.includes('README')) {
+      return;
+    }
 
     const errors = [];
 

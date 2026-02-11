@@ -4,9 +4,11 @@ module.exports = function(eleventyConfig) {
   
   // Add collection for agencies
   eleventyConfig.addCollection("agencies", function(collectionApi) {
-    return collectionApi.getFilteredByGlob("src/agencies/*.md").sort((a, b) => {
-      return a.data.title.localeCompare(b.data.title);
-    });
+    return collectionApi.getFilteredByGlob("src/agencies/*.md")
+      .filter(item => !item.inputPath.includes('README'))
+      .sort((a, b) => {
+        return a.data.title.localeCompare(b.data.title);
+      });
   });
   
   // Add default permalink pattern for agency pages
