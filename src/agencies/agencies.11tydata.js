@@ -5,6 +5,11 @@
  * This schema validates all frontmatter data for files in the agencies directory.
  * It ensures data consistency and helps catch errors during the build process.
  */
+
+// Validation constants
+const MIN_PASSBACK_MAX = 1;
+const MAX_PASSBACK_MAX = 10;
+
 module.exports = {
   eleventyDataSchema: function(data) {
     // Skip schema validation for non-agency pages
@@ -82,8 +87,8 @@ module.exports = {
 
     // Validate passback_max is reasonable (only if it exists and passed type check)
     if (typeof data.support_emv_contactless_passback_max === 'number') {
-      if (data.support_emv_contactless_passback_max < 1 || data.support_emv_contactless_passback_max > 10) {
-        errors.push(`support_emv_contactless_passback_max should be between 1 and 10`);
+      if (data.support_emv_contactless_passback_max < MIN_PASSBACK_MAX || data.support_emv_contactless_passback_max > MAX_PASSBACK_MAX) {
+        errors.push(`support_emv_contactless_passback_max should be between ${MIN_PASSBACK_MAX} and ${MAX_PASSBACK_MAX}`);
       }
     }
 
