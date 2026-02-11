@@ -1,0 +1,19 @@
+---
+layout: base.njk
+title: Home
+---
+
+<div class="home-intro">
+  <h1>Welcome to FareHow</h1>
+  <p>Your comprehensive guide to understanding how to pay transit fares across different agencies. We focus on the practical aspects of fare payment - transfer policies, passback policies, payment methods, and more.</p>
+  <p>Select a transit agency below to learn about their fare payment systems.</p>
+</div>
+
+<div class="agency-list">
+  <h2>Transit Agencies</h2>
+  <ul>
+  {%- for agency in collections.agencies %}
+    <li><a href="{{ agency.url }}">{{ agency.data.title }}</a></li>
+  {%- endfor %}
+  </ul>
+</div>

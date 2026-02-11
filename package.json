@@ -1,0 +1,26 @@
+{
+  "name": "farehow",
+  "version": "1.0.0",
+  "description": "A website about how to pay transit fares across different agencies",
+  "main": "index.js",
+  "scripts": {
+    "build": "eleventy",
+    "start": "eleventy --serve",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/phy25/farehow.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/phy25/farehow/issues"
+  },
+  "homepage": "https://github.com/phy25/farehow#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "^3.1.2"
+  }
+}
