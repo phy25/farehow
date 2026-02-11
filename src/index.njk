@@ -12,8 +12,8 @@ title: Home
 <div class="agency-list">
   <h2>Transit Agencies</h2>
   <ul>
-    <li><a href="/agencies/mbta/">MBTA (Massachusetts Bay Transportation Authority)</a></li>
-    <li><a href="/agencies/mta-nyct/">MTA-NYCT (New York City Transit)</a></li>
-    <li><a href="/agencies/mta-rr/">MTA-RR (Metro-North Railroad & Long Island Rail Road)</a></li>
+  {%- for agency in collections.agencies %}
+    <li><a href="{{ agency.url }}">{{ agency.data.title }}</a></li>
+  {%- endfor %}
   </ul>
 </div>

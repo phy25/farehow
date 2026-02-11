@@ -1,47 +1,47 @@
 ---
 layout: base.njk
 ---
+{% from "info-item.njk" import infoItem %}
 
 <article class="agency-page">
   <h1>{{ title }}</h1>
+  
+  {% if agency_url %}
+  <div class="agency-link">
+    <a href="{{ agency_url }}" target="_blank" rel="noopener noreferrer">Official Fare Information →</a>
+  </div>
+  {% endif %}
   
   <div class="agency-info-container">
     <section class="agency-info payment-methods">
       <h2>Payment Methods</h2>
       <div class="info-grid">
-        <div class="info-item">
-          <h3>Open Loop Support</h3>
-          <p class="status {{ 'status-yes' if support_openloop else 'status-no' }}">{{ "✓ Yes" if support_openloop else "✗ No" }}</p>
-        </div>
-        
-        <div class="info-item">
-          <h3>QR Code Support</h3>
-          <p class="status {{ 'status-yes' if support_qrcode else 'status-no' }}">{{ "✓ Yes" if support_qrcode else "✗ No" }}</p>
-        </div>
-        
-        <div class="info-item">
-          <h3>Cash Support</h3>
-          <p class="status {{ 'status-yes' if support_cash else 'status-no' }}">{{ "✓ Yes" if support_cash else "✗ No" }}</p>
-        </div>
-        
-        <div class="info-item">
-          <h3>Open Loop Passback</h3>
-          <p class="status {{ 'status-yes' if support_openloop_passback else 'status-no' }}">{{ "✓ Yes" if support_openloop_passback else "✗ No" }}</p>
-        </div>
+        {{ infoItem("Open Loop Support", support_openloop, true) }}
+        {{ infoItem("QR Code Support", support_qrcode, true) }}
+        {{ infoItem("Cash Support", support_cash, true) }}
+        {{ infoItem("Open Loop Passback", support_openloop_passback, true) }}
+        {% if requires_tap_off is defined %}
+        {{ infoItem("Requires Tap Off", requires_tap_off, true) }}
+        {% endif %}
+        {% if prepaid_card_fee %}
+        {{ infoItem("Prepaid Card Fee", "$" + prepaid_card_fee|string) }}
+        {% endif %}
       </div>
     </section>
     
     <section class="agency-info transfer-policy">
       <h2>Transfer Policy</h2>
       <div class="transfer-info">
-        <div class="info-item">
-          <h3>Transfer Time Limit</h3>
-          {% if transfer_limit_duration_min %}
-          <p class="status">{{ transfer_limit_duration_min }} minutes</p>
-          {% else %}
-          <p class="status">No free transfers</p>
-          {% endif %}
-        </div>
+        {% if transfer_time_limit_min %}
+        {{ infoItem("Transfer Time Limit", transfer_time_limit_min|string + " minutes") }}
+        {% elif transfer_limit_duration_min %}
+        {{ infoItem("Transfer Time Limit", transfer_limit_duration_min|string + " minutes") }}
+        {% else %}
+        {{ infoItem("Transfer Time Limit", "No free transfers") }}
+        {% endif %}
+        {% if transfer_is_unlimited_within_time is defined %}
+        {{ infoItem("Unlimited Transfers", transfer_is_unlimited_within_time, true) }}
+        {% endif %}
       </div>
     </section>
   </div>

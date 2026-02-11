@@ -1,11 +1,11 @@
 ---
 layout: agency.njk
-title: MTA-RR - Metro-North Railroad & Long Island Rail Road
+title: "MTA: Metro-North Railroad & Long Island Rail Road"
 support_openloop: false
 support_qrcode: true
 support_cash: true
 support_openloop_passback: false
-transfer_limit_duration_min: 0
+transfer_time_limit_min: 0
 ---
 
 ## About MTA-RR Fare Payment
@@ -23,11 +23,11 @@ MTA-RR supports various payment methods:
 
 ### Transfer Policy
 
-MTA Railroad uses a zone-based fare system. There are no free transfers, but combination tickets may be available for connecting to NYC Transit services at specific stations.
+MTA Railroad uses a zone-based fare system. There are no free transfers within the railroad system or to other transit modes, but combination tickets may be available for connecting to NYC Transit services at specific stations.
 
 ### Important Notes
 
-- QR code tickets purchased through MTA eTix app must be activated before boarding
+- QR code tickets purchased through MTA eTix app must be activated **at least 1 minute before boarding**. A surcharge may apply for on-board purchases.
 - Open loop contactless payment is not currently supported (as of this information)
 - Peak vs. off-peak pricing applies based on time of travel
 - Monthly passes and multi-ride tickets offer discounted rates
