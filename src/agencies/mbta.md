@@ -69,10 +69,10 @@ The following table provides examples of allowed transfers:
 
 MBTA supports card sharing between riders for both CharlieCards and contactless payments:
 
-- Stored value can be used for at least 4 riders within about 20 minutes
+- Stored value can be used for up to 4 riders within about 20 minutes
 - Transfers are tracked for 4 riders in total on the same card
 - 1 pass is only available to 1 rider, and 1 CharlieCard may only have 1 active pass; additional taps will be charged with stored value
-- If the time and rider limit is exceeded, you may be charged with extra fare or be rejected by the reader
+- If the time and rider limit is exceeded, you may be charged an extra fare or be rejected by the reader
 - You may stand on the side to tap multiple times without waiting for the gate to close or the screen to clear
   - At the middle screen of the fare gate (behind the large Contactless reader screen), a number of remaining entries will show up if multiple taps are accepted and the gate will stay open
   - At the new Contactless reader screen, the chime and indicator light around the screen is the only indicator of another tap being accepted

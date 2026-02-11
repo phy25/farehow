@@ -18,9 +18,9 @@ layout: base.njk
         {{ infoItem("My Contactless Card", support_emv_contactless, true) }}
         {{ infoItem("QR Code Support", support_qrcode, true) }}
         {{ infoItem("Cash Support", support_cash, true) }}
-        {% if support_emv_contactless_passback_max > 1 %}
+        {% if support_emv_contactless_passback_max and support_emv_contactless_passback_max > 1 %}
         {{ infoItem("Contactless Card Sharing", "✓ " + support_emv_contactless_passback_max|string + " riders total") }}
-        {% else %}
+        {% elif support_emv_contactless_passback_max is defined %}
         {{ infoItem("Contactless Card Sharing", "✗ Separate card for each rider") }}
         {% endif %}
         {{ infoItem("Requires Tap Off", requires_tap_off, true) }}
