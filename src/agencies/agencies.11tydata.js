@@ -80,14 +80,18 @@ module.exports = {
       }
     }
 
-    // Validate passback_max is reasonable
-    if (data.support_emv_contactless_passback_max < 1 || data.support_emv_contactless_passback_max > 10) {
-      errors.push(`support_emv_contactless_passback_max should be between 1 and 10`);
+    // Validate passback_max is reasonable (only if it exists and passed type check)
+    if (typeof data.support_emv_contactless_passback_max === 'number') {
+      if (data.support_emv_contactless_passback_max < 1 || data.support_emv_contactless_passback_max > 10) {
+        errors.push(`support_emv_contactless_passback_max should be between 1 and 10`);
+      }
     }
 
-    // Validate transfer time limit
-    if (data.transfer_time_limit_min < 0) {
-      errors.push(`transfer_time_limit_min should be non-negative`);
+    // Validate transfer time limit (only if it exists and passed type check)
+    if (typeof data.transfer_time_limit_min === 'number') {
+      if (data.transfer_time_limit_min < 0) {
+        errors.push(`transfer_time_limit_min should be non-negative`);
+      }
     }
 
     // If there are errors, throw them
