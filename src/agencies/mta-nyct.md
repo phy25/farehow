@@ -24,7 +24,7 @@ MTA-NYCT accepts the following payment methods:
 
 ### Transfer Policy
 
-Free transfers are available between subway and local buses, or between two buses, within a 2-hour window. **Only 2 trips are supported** in a transfer sequence. You must use the same payment method to receive free transfers.
+Free transfers are available between subway and local buses, or between two buses, within a 2-hour window. **Maximum of 2 trips total** (initial boarding + 1 free transfer) are supported in a transfer sequence. You must use the same payment method to receive free transfers.
 
 **Out-of-system transfers**: At select stations, you can transfer for free by tapping at the turnstile:
 - Between Lexington Av/59 St (N,R,W,4,5,6) and Lexington Av/63 St (F,Q)

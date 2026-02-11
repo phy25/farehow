@@ -34,8 +34,6 @@ layout: base.njk
       <div class="transfer-info">
         {% if transfer_time_limit_min %}
         {{ infoItem("Transfer Time Limit", transfer_time_limit_min|string + " minutes") }}
-        {% elif transfer_limit_duration_min %}
-        {{ infoItem("Transfer Time Limit", transfer_limit_duration_min|string + " minutes") }}
         {% else %}
         {{ infoItem("Transfer Time Limit", "No free transfers") }}
         {% endif %}

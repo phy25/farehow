@@ -60,6 +60,6 @@ MBTA supports passback for both CharlieCards and contactless payments:
 - Contactless payments from Visa, Mastercard, American Express, and Discover are supported system-wide
 - Transfer window is 120 minutes from first tap to completion of the last transfer
 - Senior, student, and reduced fare options available with proper identification
-- Express bus routes: Local segments can be charged at local bus fare with bus driver intervention (only available with old CharlieCard or cash, not contactless or new CharlieCard)
+- Express bus routes: Local segments can be charged at local bus fare with bus driver intervention (only available with original CharlieCard issued before 2024 or cash, not available with contactless payment or CharlieCards issued after the tap reader upgrade)
 
 For complete fare details, see the [MBTA Tariff](https://www.mbta.com/tariff).
