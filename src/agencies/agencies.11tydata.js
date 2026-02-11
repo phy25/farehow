@@ -7,6 +7,9 @@
  */
 
 module.exports = {
+  // Default layout for all agency pages
+  layout: "agency.njk",
+  
   eleventyDataSchema: function(data) {
     const errors = [];
 
@@ -18,6 +21,7 @@ module.exports = {
       'support_qrcode': 'boolean',                     // Whether QR code tickets are supported
       'support_cash': ['boolean', 'string'],           // Whether cash is accepted (boolean or string for special cases like "Coins only on buses")
       'support_emv_contactless_passback_max': 'number', // Max number of people who can use the same contactless card
+      'support_transit_card': 'boolean',               // Whether a proprietary transit card is available
       'transfer_is_unlimited_within_time': 'boolean',  // Whether unlimited transfers are allowed within time limit
       'transfer_time_limit_min': 'number',             // Time limit for transfers in minutes (0 if no transfers)
       'requires_tap_off': 'boolean',                   // Whether tapping off is required at destination
@@ -28,7 +32,6 @@ module.exports = {
     const optionalFields = {
       'layout': 'string',                              // Layout template to use (defaults to "agency.njk")
       'permalink': 'string',                           // URL path for the page
-      'support_transit_card': 'boolean',               // Whether a proprietary transit card is available
       'transit_card_main_name': 'string',              // Name of the main transit card (e.g., "CharlieCard", "OMNY card")
       'transit_card_main_fee': 'number',               // Fee to obtain the transit card in dollars (0 if free)
       'fare_capping_amount': 'string'                  // Description of fare capping (e.g., "12 trips / 7 days")
