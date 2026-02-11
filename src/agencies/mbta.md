@@ -43,8 +43,6 @@ The following transfers across fare gates are free as one combined trip as well:
 
 **SL4 and SL5** are considered local buses.
 
-Boarding **SL1** at Logan Airport terminals is free (sponsored by Massport), and you may complete the rapid transit trip for free within the fare gate. Boarding SL3 at the Airport station is not free.
-
 #### Transfer Combinations
 
 For Local Bus, Express Bus, Silver Line, and/or Subway, transfer up to two times and pay only the cost of the highest-priced service. Transfer must be completed within 120 minutes after the first tap. Transfers are unavailable on other modes unless the pass covers the mode.
@@ -65,7 +63,11 @@ The following table provides examples of allowed transfers:
 | Subway → Local Bus → Subway | 2 Subway Fares (second charged full price) |
 | Ferry → Subway → Local Bus | 1 Ferry Fare (Contactless Payment only) |
 
-### Card Sharing
+### Special Cases
+
+Boarding **SL1** at Logan Airport terminals is free (sponsored by Massport), and you may complete the rapid transit trip for free within the fare gate. Boarding **SL3** at the Airport station is not free.
+
+### Card Sharing (also known as passback)
 
 MBTA supports card sharing between riders for both CharlieCards and contactless payments:
 

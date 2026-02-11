@@ -17,7 +17,11 @@ layout: base.njk
       <div class="info-grid">
         {{ infoItem("My Contactless Card", support_emv_contactless, true) }}
         {{ infoItem("QR Code Support", support_qrcode, true) }}
+        {% if support_cash == true or support_cash == false %}
         {{ infoItem("Cash Support", support_cash, true) }}
+        {% else %}
+        {{ infoItem("Cash Support", support_cash) }}
+        {% endif %}
         {% if support_emv_contactless_passback_max and support_emv_contactless_passback_max > 1 %}
         {{ infoItem("Contactless Card Sharing", "✓ " + support_emv_contactless_passback_max|string + " riders total") }}
         {% elif support_emv_contactless_passback_max is defined %}
@@ -39,13 +43,13 @@ layout: base.njk
     <section class="agency-info transfer-policy">
       <h2>Transfer Policy</h2>
       <div class="transfer-info">
-        {% if transfer_time_limit_min %}
+        {% if transfer_time_limit_min > 0 %}
           {% if transfer_time_limit_min % 60 == 0 %}
           {{ infoItem("Transfer Time Limit", (transfer_time_limit_min / 60)|round|int|string + " hours") }}
           {% else %}
           {{ infoItem("Transfer Time Limit", transfer_time_limit_min|string + " minutes") }}
           {% endif %}
-        {% else %}
+        {% elif transfer_time_limit_min == 0 %}
         {{ infoItem("Transfer Time Limit", "No free transfers") }}
         {% endif %}
         {% if transfer_is_unlimited_within_time is defined %}
