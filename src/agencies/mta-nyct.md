@@ -10,8 +10,10 @@ support_emv_contactless_passback_max: 4
 support_transit_card: true
 transit_card_main_name: OMNY card
 transit_card_main_fee: 5
+transfer_is_unlimited_within_time: false
 transfer_time_limit_min: 120
 requires_tap_off: false
+requires_transfer_tap: false
 fare_capping_amount: "12 trips / 7 days"
 ---
 

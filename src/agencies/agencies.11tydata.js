@@ -6,45 +6,31 @@
  * It ensures data consistency and helps catch errors during the build process.
  */
 
-// Validation constants
-const MIN_PASSBACK_MAX = 1;
-const MAX_PASSBACK_MAX = 10;
-
 module.exports = {
   eleventyDataSchema: function(data) {
-    // Skip schema validation for non-agency pages
-    if (!data.page.inputPath.includes('/agencies/')) {
-      return;
-    }
-    
-    // Skip README files
-    if (data.page.inputPath.includes('README')) {
-      return;
-    }
-
     const errors = [];
 
     // Required fields for all agency pages
     const requiredFields = {
-      'layout': 'string',                              // Layout template to use (e.g., "agency.njk")
       'title': 'string',                               // Display name of the agency
-      'permalink': 'string',                           // URL path for the page
+      'agency_url': 'string',                          // Official agency fare information URL
       'support_emv_contactless': 'boolean',            // Whether contactless payment (credit/debit cards, mobile pay) is supported
       'support_qrcode': 'boolean',                     // Whether QR code tickets are supported
       'support_cash': ['boolean', 'string'],           // Whether cash is accepted (boolean or string for special cases like "Coins only on buses")
       'support_emv_contactless_passback_max': 'number', // Max number of people who can use the same contactless card
+      'transfer_is_unlimited_within_time': 'boolean',  // Whether unlimited transfers are allowed within time limit
       'transfer_time_limit_min': 'number',             // Time limit for transfers in minutes (0 if no transfers)
-      'requires_tap_off': 'boolean'                    // Whether tapping off is required at destination
+      'requires_tap_off': 'boolean',                   // Whether tapping off is required at destination
+      'requires_transfer_tap': 'boolean'               // Whether you need to tap when transferring
     };
 
     // Optional fields that may be present
     const optionalFields = {
-      'agency_url': 'string',                          // Official agency fare information URL
+      'layout': 'string',                              // Layout template to use (defaults to "agency.njk")
+      'permalink': 'string',                           // URL path for the page
       'support_transit_card': 'boolean',               // Whether a proprietary transit card is available
       'transit_card_main_name': 'string',              // Name of the main transit card (e.g., "CharlieCard", "OMNY card")
       'transit_card_main_fee': 'number',               // Fee to obtain the transit card in dollars (0 if free)
-      'transfer_is_unlimited_within_time': 'boolean',  // Whether unlimited transfers are allowed within time limit
-      'requires_transfer_tap': 'boolean',              // Whether you need to tap when transferring
       'fare_capping_amount': 'string'                  // Description of fare capping (e.g., "12 trips / 7 days")
     };
 
@@ -82,13 +68,6 @@ module.exports = {
       }
       if (data.transit_card_main_fee === undefined) {
         errors.push(`When support_transit_card is true, transit_card_main_fee is required`);
-      }
-    }
-
-    // Validate passback_max is reasonable (only if it exists and passed type check)
-    if (typeof data.support_emv_contactless_passback_max === 'number') {
-      if (data.support_emv_contactless_passback_max < MIN_PASSBACK_MAX || data.support_emv_contactless_passback_max > MAX_PASSBACK_MAX) {
-        errors.push(`support_emv_contactless_passback_max should be between ${MIN_PASSBACK_MAX} and ${MAX_PASSBACK_MAX}`);
       }
     }
 
