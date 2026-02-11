@@ -2,12 +2,16 @@
 layout: agency.njk
 title: "MTA: Metro-North Railroad & Long Island Rail Road"
 permalink: /mta-rr/
+agency_url: https://www.mta.info/fares-tolls/lirr-metro-north
 support_emv_contactless: false
 support_qrcode: true
 support_cash: true
 support_emv_contactless_passback_max: 1
+support_transit_card: false
+transfer_is_unlimited_within_time: false
 transfer_time_limit_min: 0
 requires_tap_off: false
+requires_transfer_tap: false
 ---
 
 ## About MTA-RR Fare Payment
