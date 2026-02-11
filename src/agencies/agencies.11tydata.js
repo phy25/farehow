@@ -17,12 +17,16 @@ const agencySchema = z
   })
   .passthrough();
 
-module.exports = {
-  eleventyDataSchema: function(data) {
-    const result = agencySchema.safeParse(data);
+const validateAgencySchema = function(data) {
+  const result = agencySchema.safeParse(data);
 
-    if (result.error) {
-      throw fromZodError(result.error);
-    }
+  if (result.error) {
+    throw fromZodError(result.error);
   }
+
+  return result.data;
+};
+
+module.exports = {
+  eleventyDataSchema: validateAgencySchema
 };
