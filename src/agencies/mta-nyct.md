@@ -1,5 +1,4 @@
 ---
-layout: agency.njk
 title: "MTA: New York City Transit"
 permalink: /mta-nyct/
 agency_url: https://www.mta.info/fares-tolls/subway-bus
@@ -8,7 +7,7 @@ support_qrcode: false
 support_cash: "Coins only on buses"
 support_emv_contactless_passback_max: 4
 support_transit_card: true
-transit_card_main_name: OMNY card
+transit_card_main_name: OMNY Card
 transit_card_main_fee: 5
 transfer_is_unlimited_within_time: false
 transfer_time_limit_min: 120
@@ -25,7 +24,7 @@ New York City Transit operates the subway and local bus systems serving New York
 
 MTA-NYCT accepts the following payment methods:
 - **Contactless payment**: Credit/debit cards (Visa®, Mastercard®, American Express®, Discover®, UnionPay, and JCB) and mobile payment (Apple Pay, Google Pay, Samsung Pay)
-- **OMNY card**: Prepaid card ($5 fee, non-refundable)
+- **OMNY Card**: Prepaid card ($5 fee, non-refundable)
 - **Cash**: Coins only on buses
 
 ### Transfer Policy

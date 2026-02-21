@@ -1,10 +1,24 @@
-{% macro infoItem(label, value, isBoolean=false) %}
+{% macro infoItem(label, value, isBoolean=false, isGood=none, isMaybe=false) %}
 <div class="info-item">
   <h3>{{ label }}</h3>
   {% if isBoolean %}
-  <p class="status {{ 'status-yes' if value else 'status-no' }}">{{ "✓ Yes" if value else "✗ No" }}</p>
+  <p class="status {{ 'status-yes' if value else 'status-no' }}">
+    <span class="icon">{{ "✓" if value else "✗" }}</span>
+    <span class="text">{{ "Yes" if value else "No" }}</span>
+  </p>
+  {% elif isGood is not none %}
+  <p class="status {{ 'status-yes' if isGood else 'status-no' }}">
+    <span class="text">{{ value }}</span>
+  </p>
+  {% elif isMaybe %}
+  <p class="status status-maybe">
+    <span class="icon">?</span>
+    <span class="text">{{ value }}</span>
+  </p>
   {% else %}
-  <p class="status">{{ value }}</p>
+  <p class="status status-regular">
+    <span class="text">{{ value }}</span>
+  </p>
   {% endif %}
 </div>
 {% endmacro %}

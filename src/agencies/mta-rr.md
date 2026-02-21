@@ -1,5 +1,4 @@
 ---
-layout: agency.njk
 title: "MTA: Metro-North Railroad & Long Island Rail Road"
 permalink: /mta-rr/
 agency_url: https://www.mta.info/fares-tolls/lirr-metro-north

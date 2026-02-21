@@ -1,5 +1,4 @@
 ---
-layout: agency.njk
 title: MBTA (Massachusetts Bay Transportation Authority)
 permalink: /mbta/
 agency_url: https://www.mbta.com/fares

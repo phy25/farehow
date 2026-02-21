@@ -4,38 +4,74 @@ layout: base.njk
 {% from "info-item.njk" import infoItem %}
 
 <article class="agency-page">
-  <h1>
-    {{ title }}
-    {% if agency_url %}
-    <a href="{{ agency_url }}" target="_blank" rel="noopener noreferrer" class="agency-url-inline">Official Fare Information →</a>
-    {% endif %}
-  </h1>
+  <h1>{{ title }}</h1>
+  {% if agency_url %}
+  <a href="{{ agency_url }}" target="_blank" rel="noopener noreferrer" class="agency-url-inline">Official Fare Reference</a>
+  {% endif %}
   
   <div class="agency-info-container">
     <section class="agency-info payment-methods">
       <h2>Payment Methods</h2>
+      <div class="method-pills">
+        {% if support_emv_contactless %}<span class="method-pill">Contactless Card</span>{% endif %}
+        {% if support_qrcode %}<span class="method-pill">QR Code</span>{% endif %}
+        {% if support_cash %}
+          {% if support_cash == true %}
+          <span class="method-pill">Cash</span>
+          {% else %}
+          <span class="method-pill">Cash <span class="method-sub">({{ support_cash }})</span></span>
+          {% endif %}
+        {% endif %}
+        {% if support_transit_card and transit_card_main_name %}
+        <span class="method-pill">{{ transit_card_main_name }}</span>
+        {% endif %}
+      </div>
+
+      {% set has_unsupported = (not support_emv_contactless) or (not support_qrcode) or (not support_cash) or (transit_card_main_name and not support_transit_card) %}
+      {% if has_unsupported %}
+      <div class="method-pills unsupported">
+        {% if not support_emv_contactless %}<span class="method-pill method-pill-unsupported">Contactless Card</span>{% endif %}
+        {% if not support_qrcode %}<span class="method-pill method-pill-unsupported">QR Code</span>{% endif %}
+        {% if not support_cash %}<span class="method-pill method-pill-unsupported">Cash</span>{% endif %}
+        {% if transit_card_main_name and not support_transit_card %}
+        <span class="method-pill method-pill-unsupported">{{ transit_card_main_name }}</span>
+        {% endif %}
+      </div>
+      {% endif %}
+
+      <h3 class="section-divider">Payment Details</h3>
       <div class="info-grid">
-        {{ infoItem("My Contactless Card", support_emv_contactless, true) }}
-        {{ infoItem("QR Code Support", support_qrcode, true) }}
-        {% if support_cash == true or support_cash == false %}
-        {{ infoItem("Cash Support", support_cash, true) }}
-        {% else %}
-        {{ infoItem("Cash Support", support_cash) }}
+        {% if support_transit_card and transit_card_main_name and transit_card_main_fee is defined and transit_card_main_fee is not none %}
+          {% if transit_card_main_fee == 0 %}
+          {{ infoItem(transit_card_main_name + " Fee", "Free") }}
+          {% elif transit_card_main_fee > 0 %}
+          {{ infoItem(transit_card_main_name + " Fee", "$" + transit_card_main_fee|string) }}
+          {% endif %}
         {% endif %}
         {% if support_emv_contactless_passback_max and support_emv_contactless_passback_max > 1 %}
-        {{ infoItem("Contactless Card Sharing", "✓ " + support_emv_contactless_passback_max|string + " riders total") }}
-        {% elif support_emv_contactless_passback_max is defined %}
-        {{ infoItem("Contactless Card Sharing", "✗ Separate card for each rider") }}
+        {{ infoItem("Contactless Card Sharing", "✓ " + support_emv_contactless_passback_max|string + " riders total", false, true) }}
+        {% elif support_emv_contactless_passback_max is defined and support_emv_contactless_passback_max > 0 %}
+        {{ infoItem("Contactless Card Sharing", "✗ Separate card for each rider", false, false) }}
         {% endif %}
-        {{ infoItem("Requires Tap Off", requires_tap_off, true) }}
-        {% if support_transit_card and transit_card_main_name %}
-        {{ infoItem(transit_card_main_name, support_transit_card, true) }}
-        {% endif %}
-        {% if transit_card_main_fee %}
-        {{ infoItem(transit_card_main_name + " Fee", "$" + transit_card_main_fee|string) }}
-        {% endif %}
+      </div>
+
+      <h3 class="section-divider">Tapping Requirements</h3>
+      <div class="tap-grid">
+        <div class="tap-item">
+          <span class="tap-label">Tap Off</span>
+          <span class="status {{ 'status-yes' if requires_tap_off else 'status-no' }}">
+            <span class="icon">{{ "✓" if requires_tap_off else "✗" }}</span>
+            <span class="text">{{ "Required" if requires_tap_off else "No" }}</span>
+          </span>
+        </div>
         {% if requires_transfer_tap is defined %}
-        {{ infoItem("Special Tap Reader for Transfer", requires_transfer_tap, true) }}
+        <div class="tap-item">
+          <span class="tap-label">Tap Transfer</span>
+          <span class="status {{ 'status-yes' if requires_transfer_tap else 'status-no' }}">
+            <span class="icon">{{ "✓" if requires_transfer_tap else "✗" }}</span>
+            <span class="text">{{ "Required" if requires_transfer_tap else "No special reader" }}</span>
+          </span>
+        </div>
         {% endif %}
       </div>
     </section>

@@ -1,5 +1,4 @@
 ---
-layout: agency.njk
 title: MBTA Commuter Rail
 permalink: /mbta-cr/
 agency_url: https://www.mbta.com/fares/commuter-rail-fares
@@ -7,9 +6,7 @@ support_emv_contactless: true
 support_qrcode: true
 support_cash: true
 support_emv_contactless_passback_max: 1
-support_transit_card: true
-transit_card_main_name: CharlieCard
-transit_card_main_fee: 0
+support_transit_card: false
 transfer_is_unlimited_within_time: false
 transfer_time_limit_min: 0
 requires_tap_off: false
